@@ -14,6 +14,6 @@ export const site = {
   calendly: 'https://calendly.com/seba-przyimka/30min',
   location: 'Glasgow, UK',
   // Free key from https://web3forms.com (sent to the email above). Leave empty until you have it.
-  web3formsKey: '',
+  web3formsKey: '590bdcf5-9e1c-4e82-9227-7ae046b00a22',
   year: 2026,
 };
