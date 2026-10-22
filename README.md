@@ -1,6 +1,6 @@
 # Bastian Studio website
 
-The website for Bastian Studio, web design and digital marketing in Glasgow. Built with [Astro](https://astro.build) as a fast static site, hosted on Cloudflare Pages.
+The website for Bastian Studio, web design and digital marketing in Glasgow. Built with [Astro](https://astro.build) as a fast static site, hosted on Cloudflare.
 
 ## Run it on your computer
 
@@ -55,22 +55,25 @@ The contact form and the free website check send emails through [Web3Forms](http
 
 Until the key is added, the forms show a message asking people to email or call instead.
 
-## Deploy on Cloudflare Pages (free)
+## Deploy on Cloudflare (free)
+
+The site is deployed with Cloudflare Workers, which serves the built Astro files. `wrangler.jsonc` tells Cloudflare to publish the `dist/` folder.
 
 1. Sign up at [dash.cloudflare.com](https://dash.cloudflare.com).
-2. **Workers & Pages → Create → Pages → Connect to Git** and choose this GitHub repository.
-3. Build settings:
-   - Framework preset: **Astro**
+2. **Workers & Pages → Create → Import a repository** and choose this GitHub repository.
+3. Settings:
    - Build command: `npm run build`
-   - Build output directory: `dist`
-   - Environment variable: `NODE_VERSION` = `22`
-4. **Save and Deploy.** You'll get a free `*.pages.dev` address straight away.
-5. Every push to the `main` branch updates the live site automatically.
+   - Deploy command: `npx wrangler deploy`
+   - Advanced settings → Build variables: `NODE_VERSION` = `22`
+4. **Deploy.** You'll get a free `*.workers.dev` address straight away.
+5. Every push to the `main` branch rebuilds and updates the live site automatically.
+
+(Alternatively, Cloudflare **Pages** works too: Framework preset Astro, build command `npm run build`, output directory `dist`.)
 
 ### Connect your domain
 
 1. Buy `bastianstudio.co.uk` (Cloudflare Registrar sells domains at cost, or use any registrar).
-2. In your Pages project: **Custom domains → Set up a custom domain** and follow the steps.
+2. In your Cloudflare project: **Settings → Domains & Routes → Add → Custom domain** and follow the steps.
 3. If the domain isn't `bastianstudio.co.uk`, update `url` in `src/data/site.ts` and the sitemap line in `public/robots.txt`.
 
 ## After launch

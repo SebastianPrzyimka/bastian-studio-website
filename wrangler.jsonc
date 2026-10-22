@@ -1,0 +1,12 @@
+// Cloudflare Workers config: serves the built Astro site (dist/) as static files.
+{
+  "name": "bastian-studio-website",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    // /prices serves prices.html
+    "html_handling": "auto-trailing-slash",
+    // unknown addresses show 404.html with a proper 404 status
+    "not_found_handling": "404-page"
+  }
+}
