@@ -1,0 +1,32 @@
+---
+const chips = ['Speed', 'Mobile', 'Google listing', 'SEO basics', 'Enquiries'];
+---
+<section aria-labelledby="free-check-h" class="sec-b" style="padding: 0 0 104px; background: #0C1426">
+  <div class="wrap">
+    <div class="split boxpad" style="align-items: center; border-radius: 28px; padding: clamp(24px, 4vw, 48px); background: linear-gradient(160deg, #14203D, #0F1830); border: 1px solid rgba(159,211,245,.2)">
+      <div class="split-a7">
+        <p class="mono" style="margin: 0 0 14px; color: #9FD3F5">Free website check</p>
+        <h2 id="free-check-h" style="margin: 0 0 14px; font-size: clamp(28px, 3vw, 40px); font-weight: 500; letter-spacing: -.03em; line-height: 1.1">Already have a website? <span class="serif" style="color: #9FD3F5">Get a free check.</span></h2>
+        <p class="lead" style="margin: 0 0 20px">Send me your web address and I’ll send you a free 5-point check within 2 working days.</p>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px">
+          {chips.map((c) => <li style="font-size: 14px; padding: 7px 14px; border-radius: 999px; background: rgba(159,211,245,.12); color: #CFE9FA">{c}</li>)}
+        </ul>
+      </div>
+      <div class="split-b5" data-form-wrap>
+        <form data-web3form data-subject="Free website check request" style="display: flex; flex-direction: column; gap: 14px">
+          <div class="field"><label for="chk-url" style="font-size: 14px; color: #B7C3D4">Your website address</label><input id="chk-url" name="website" type="text" inputmode="url" autocomplete="url" placeholder="e.g. www.yourbusiness.co.uk" required></div>
+          <div class="field"><label for="chk-email" style="font-size: 14px; color: #B7C3D4">Your email</label><input id="chk-email" name="email" type="email" autocomplete="email" required></div>
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="form-error" data-form-error hidden></p>
+          <button type="submit" class="btn btn-ice" style="width: 100%">Get my free check</button>
+          <p style="margin: 0; font-size: 13px; color: #8291A8; text-align: center">No obligation. No spam.</p>
+        </form>
+        <div data-form-thanks hidden style="display: flex; flex-direction: column; gap: 12px; padding: 8px 0">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="23" stroke="#9FD3F5" stroke-width="1.5"></circle><path d="M15 25l6 6 13-14" stroke="#9FD3F5" stroke-width="2"></path></svg>
+          <p style="margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -.02em">Thanks, your check is on its way.</p>
+          <p style="margin: 0; color: #B7C3D4; font-size: 16px; line-height: 1.5">You’ll get it by email within 2 working days.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

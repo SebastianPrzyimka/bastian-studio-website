@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Faq from '../components/Faq.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { webDesignFaqs } from '../data/faqs';
+---
+<BaseLayout title="Web Design Glasgow | Custom Websites from £495 | Bastian Studio" description="Fast, mobile-friendly websites for Glasgow businesses, built to bring in calls and bookings. Designed and built by one local developer.">
+<section id="top" class="hero-pad" style="position: relative; padding: 80px 0 88px; background: radial-gradient(900px 460px at 80% 0%, rgba(62,143,208,.22), transparent 70%), #0A1020">
+  <div class="wrap">
+    <p class="mono" style="margin: 0 0 20px; color: #9FD3F5"><a href="/" style="color: #9AA8BC; text-decoration: none">Home</a> / <a href="/#services" style="color: #9AA8BC; text-decoration: none">Services</a> / Web design Glasgow</p>
+    <h1 style="margin: 0; font-size: clamp(40px, 5.4vw, 76px); font-weight: 500; line-height: 1; letter-spacing: -.045em; max-width: 18ch">Web design in Glasgow that <span class="serif" style="color: #9FD3F5">brings in customers.</span></h1>
+    <p style="margin: 24px 0 32px; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; color: #B7C3D4; max-width: 54ch">Custom websites for Glasgow businesses: fast, mobile-friendly and built to turn visitors into calls, bookings and enquiries. Designed and built by one local person, start to finish.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px">
+      <a href="#contact" class="btn btn-ice">Get a free quote
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"></path></svg>
+      </a>
+      <a href="/prices" class="btn btn-ghost">See prices</a>
+    </div>
+    <ul style="list-style: none; margin: 32px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 15px; color: #C9D4E3"><li style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"></path></svg>Fixed, written quote</li><li style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"></path></svg>Live in around 2–4 weeks</li><li style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"></path></svg>You own your website</li></ul>
+  </div>
+</section>
+
+<section class="sec" style="padding: 104px 0; background: #0A1020; border-top: 1px solid rgba(159,211,245,.08)">
+  <div class="wrap">
+    <div class="split" style="margin-bottom: 40px">
+      <div class="split-a7">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">What it is</p>
+        <h2 class="h2">A website that works <span class="serif" style="color: #9FD3F5">as hard as you do.</span></h2>
+      </div>
+      <div class="split-b5" style="align-self: end"><p class="lead">Most small business websites look fine but don’t bring in work. Mine are planned around one thing: getting the right people to contact you.</p></div>
+    </div>
+    <ul class="factors" style="grid-template-columns: repeat(2, minmax(0, 1fr))"><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Designed for your customers</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">Not a template. Built around what your customers need to see before they call.</span></span></li><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Fast on every phone</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">Most visitors find you on a phone. Your site loads quickly and is easy to use with a thumb.</span></span></li><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Built to get enquiries</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">Clear buttons, quote forms, click-to-call and booking on every page.</span></span></li><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Ready for Google</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">Set up with SEO basics, Google Business Profile and tracking from day one.</span></span></li><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Easy to update</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">Change prices, photos and text yourself, or just send me a message.</span></span></li><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Yours to keep</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">You own the website, the domain and the content. No lock-in.</span></span></li></ul>
+  </div>
+</section>
+
+<section class="sec" style="padding: 104px 0; background: #0C1426; border-top: 1px solid rgba(159,211,245,.08)">
+  <div class="wrap">
+    <div class="split" style="margin-bottom: 40px">
+      <div class="split-a7">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">What’s included</p>
+        <h2 class="h2">Everything you need <span class="serif" style="color: #9FD3F5">to go live.</span></h2>
+      </div>
+      
+    </div>
+    <ul class="factors" style="grid-template-columns: repeat(3, minmax(0, 1fr))"><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Planning call</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">We agree pages, goals and what success looks like.</span></span></li><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Custom design</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">Mobile-first, on-brand, approved by you before the build.</span></span></li><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Copywriting help</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">Words that explain what you do and why people should choose you.</span></span></li><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Contact & booking</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">Forms, click-to-call, WhatsApp or online booking.</span></span></li><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">SEO setup</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">Page titles, Google Business Profile, Search Console and analytics.</span></span></li><li style="padding: 18px 0; border-top: 1px solid rgba(159,211,245,.16); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg><span><strong style="display: block; font-weight: 500; font-size: 17px; margin-bottom: 4px">Launch & training</strong><span style="color: #9AA8BC; font-size: 15px; line-height: 1.5">I put it live and show you how to make changes.</span></span></li></ul>
+  </div>
+</section>
+
+<section class="sec" style="padding: 104px 0; background: #0C1426; border-top: 1px solid rgba(159,211,245,.08)">
+  <div class="wrap">
+    <div class="split" style="margin-bottom: 40px">
+      <div class="split-a7">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">Price</p>
+        <h2 class="h2">What does a website <span class="serif" style="color: #9FD3F5">cost in Glasgow?</span></h2>
+      </div>
+      <div class="split-b5" style="align-self: end"><p class="lead">Prices depend mostly on the number of pages and features. Every quote is fixed and agreed in writing.</p></div>
+    </div>
+    <div class="two-col" style="gap: 20px">
+      <div class="boxpad" style="border-radius: 24px; padding: 32px; border: 1px solid rgba(159,211,245,.18)">
+        <p class="mono" style="margin: 0 0 10px; color: #9AA8BC">Typical UK range</p>
+        <p style="margin: 0 0 8px; font-size: clamp(32px, 3.4vw, 44px); font-weight: 500; letter-spacing: -.035em">£800–£3,000</p>
+        <p style="margin: 0; color: #9AA8BC; font-size: 15px">Freelancer to agency, for guidance only.</p>
+      </div>
+      <div class="boxpad" style="border-radius: 24px; padding: 32px; background: #9FD3F5; color: #0A1020">
+        <p class="mono" style="margin: 0 0 10px; color: #1B4F7A">My price</p>
+        <p style="margin: 0 0 8px; font-size: clamp(32px, 3.4vw, 44px); font-weight: 500; letter-spacing: -.035em">from £495</p>
+        <p style="margin: 0 0 18px; font-size: 15px">One-page sites from £495, up to 5 pages from £1,195, including design, build and SEO setup.</p>
+        <a href="/prices" style="color: #0A1020; font-weight: 500">See all packages →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding: 104px 0; background: #0A1020; border-top: 1px solid rgba(159,211,245,.08)">
+  <div class="wrap">
+    <div class="split" style="margin-bottom: 40px">
+      <div class="split-a7">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">How it works</p>
+        <h2 class="h2">From first chat <span class="serif" style="color: #9FD3F5">to launch day.</span></h2>
+      </div>
+      
+    </div>
+    <ol class="steps" style="list-style: none; margin: 0; padding: 0"><li style="padding-top: 22px; border-top: 1px solid #9FD3F5"><p class="mono" style="margin: 0 0 14px; color: #9FD3F5">Step 1</p><h3 style="margin: 0 0 8px; font-size: 21px; font-weight: 500">Free call</h3><p style="margin: 0; color: #9AA8BC; line-height: 1.55">A 20-minute chat about your business and goals.</p></li><li style="padding-top: 22px; border-top: 1px solid rgba(159,211,245,.25)"><p class="mono" style="margin: 0 0 14px; color: #9FD3F5">Step 2</p><h3 style="margin: 0 0 8px; font-size: 21px; font-weight: 500">Plan & quote</h3><p style="margin: 0; color: #9AA8BC; line-height: 1.55">A clear plan, timeline and fixed price.</p></li><li style="padding-top: 22px; border-top: 1px solid rgba(159,211,245,.25)"><p class="mono" style="margin: 0 0 14px; color: #9FD3F5">Step 3</p><h3 style="margin: 0 0 8px; font-size: 21px; font-weight: 500">Design & build</h3><p style="margin: 0; color: #9AA8BC; line-height: 1.55">You see designs early; I build and test everything.</p></li><li style="padding-top: 22px; border-top: 1px solid rgba(159,211,245,.25)"><p class="mono" style="margin: 0 0 14px; color: #9FD3F5">Step 4</p><h3 style="margin: 0 0 8px; font-size: 21px; font-weight: 500">Launch</h3><p style="margin: 0; color: #9AA8BC; line-height: 1.55">We go live, set up Google, and I stay on hand.</p></li></ol>
+  </div>
+</section>
+
+<section id="faq" class="sec" style="padding: 104px 0; background: #0C1426; border-top: 1px solid rgba(159,211,245,.1)">
+  <div class="wrap split">
+    <div class="split-a">
+      <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">FAQ</p>
+      <h2 class="h2">Web design questions.</h2>
+    </div>
+    <Faq items={webDesignFaqs} id="faq-wd" />
+  </div>
+</section>
+
+<ContactSection />
+
+</BaseLayout>

@@ -1,0 +1,77 @@
+---
+import '@fontsource-variable/geist';
+import '@fontsource/geist-mono/400.css';
+import '@fontsource/geist-mono/500.css';
+import '@fontsource/instrument-serif/400-italic.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ActionBar from '../components/ActionBar.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  current?: string;
+  hasContact?: boolean;
+  noindex?: boolean;
+  schema?: boolean;
+}
+const { title, description, current, hasContact = true, noindex = false, schema = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname === '/index' ? '/' : Astro.url.pathname, site.url).href;
+const ogImage = new URL('/share.png', site.url).href;
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: site.name,
+  description: 'Web design, SEO, Google Ads, branding and automation for small businesses.',
+  url: site.url + '/',
+  image: ogImage,
+  telephone: site.phoneSchema,
+  email: site.email,
+  founder: { '@type': 'Person', name: site.owner },
+  address: { '@type': 'PostalAddress', addressLocality: 'Glasgow', addressCountry: 'GB' },
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  priceRange: '££',
+  knowsAbout: ['Web design', 'E-commerce', 'SEO', 'Google Ads', 'Logo design', 'Social media graphics', 'Landing pages', 'Automation', 'Website maintenance'],
+};
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0A1020" />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />}
+  </head>
+  <body>
+    <div class="page" style="width: 100%; overflow-x: clip; background: #0A1020">
+      <Header current={current} hasContact={hasContact} />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+      <ActionBar hasContact={hasContact} />
+    </div>
+    <script>
+      import '../scripts/site.ts';
+    </script>
+  </body>
+</html>

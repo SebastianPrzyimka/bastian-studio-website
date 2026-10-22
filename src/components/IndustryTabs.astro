@@ -1,0 +1,31 @@
+---
+import { industries } from '../data/industries';
+---
+<div class="boxpad" data-tabs style="margin-top: 72px; border-radius: 28px; background: #0F1830; border: 1px solid rgba(159,211,245,.14); padding: clamp(24px, 4vw, 48px)">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 28px">
+    <h3 style="margin: 0; font-size: clamp(26px, 2.6vw, 34px); font-weight: 500; letter-spacing: -.03em">What a website does for <span class="serif" style="color: #9FD3F5">your</span> kind of business</h3>
+    <div class="tabs" role="tablist" aria-label="Business type">
+      {industries.map((ind, i) => (
+        <button type="button" class="tab" role="tab" id={`ind-tab-${i}`} aria-controls={`ind-panel-${i}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{ind.label}</button>
+      ))}
+    </div>
+  </div>
+  {industries.map((ind, i) => (
+    <div class="split" role="tabpanel" id={`ind-panel-${i}`} aria-labelledby={`ind-tab-${i}`} hidden={i !== 0} style="gap: 32px">
+      <div class="split-a">
+        <p style="margin: 0; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.3; letter-spacing: -.02em">{ind.headline}</p>
+        <p class="mono" style="margin: 28px 0 12px; color: #9AA8BC">I’d usually recommend</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          {ind.recs.map((r) => <span style="font-size: 14px; padding: 7px 14px; border-radius: 999px; background: rgba(159,211,245,.12); color: #CFE9FA">{r}</span>)}
+        </div>
+      </div>
+      <ul class="split-b" style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+        {ind.points.map((p) => (
+          <li style="display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(159,211,245,.12); font-size: 17px; line-height: 1.45; color: #DCE5F0">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg>{p}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>

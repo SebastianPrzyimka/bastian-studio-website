@@ -1,0 +1,44 @@
+---
+import Logo from './Logo.astro';
+import { site } from '../data/site';
+import { waIcon } from './Icons';
+interface Props { current?: string; hasContact?: boolean }
+const { current = '', hasContact = true } = Astro.props;
+const quoteHref = hasContact ? '#contact' : '/#contact';
+const links = [
+  { label: 'Services', href: '/#services' },
+  { label: 'Why a website', href: '/#why' },
+  { label: 'About', href: '/about' },
+  { label: 'Prices', href: '/prices' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: 'Contact', href: hasContact ? '#contact' : '/#contact' },
+];
+---
+<header class="topbar" style="position: sticky; top: 0; z-index: 50; background: rgba(10,16,32,.82); border-bottom: 1px solid rgba(159,211,245,.12)">
+  <div class="wrap nav" style="padding-top: 12px; padding-bottom: 12px">
+    <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #EEF4FA; min-height: 44px" aria-label="Bastian Studio home">
+      <Logo id="h" size={30} />
+      <span style="font-size: 19px; font-weight: 600; letter-spacing: -.02em">Bastian <span style="color: #9FD3F5">Studio</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      {links.map((l) => (
+        <a class="navlink" href={l.href} aria-current={current === l.label ? 'page' : undefined} style={current === l.label ? 'color: #FFFFFF' : undefined}>{l.label}</a>
+      ))}
+    </nav>
+    <div style="display: flex; align-items: center; gap: 8px 14px">
+      <a href={site.whatsapp} target="_blank" rel="noopener" class="hide-sm hdr-wa" aria-label="Message me on WhatsApp (opens in a new tab)" title="WhatsApp" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(159,211,245,.25); color: #C9D4E3" set:html={waIcon}></a>
+      <a href={site.phoneHref} class="hide-sm" style="text-decoration: none; color: #C9D4E3; font-size: 15px; padding: 12px 0">{site.phoneDisplay}</a>
+      <a href={quoteHref} class="btn btn-ice hide-xs" style="min-height: 44px; padding: 0 18px; font-size: 15px; white-space: nowrap">Get a quote</a>
+      <button type="button" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu" data-menu-toggle style="color: #EEF4FA">
+        <svg class="icon-open" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 5h14M2 9h14M2 13h14"></path></svg>
+        <svg class="icon-close" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14"></path></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-menu" aria-label="Mobile" class="wrap" style="display: flex; flex-direction: column; padding-bottom: 16px" hidden>
+    {links.map((l) => (
+      <a class="navlink" href={l.href} data-menu-close style="font-size: 18px; border-top: 1px solid rgba(159,211,245,.12)">{l.label}</a>
+    ))}
+    <a class="navlink" href={site.phoneHref} style="font-size: 18px; border-top: 1px solid rgba(159,211,245,.12); color: #9FD3F5">Call {site.phoneDisplay}</a>
+  </nav>
+</header>

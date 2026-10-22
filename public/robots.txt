@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bastianstudio.co.uk/sitemap-index.xml

@@ -1,0 +1,61 @@
+---
+import { services, serviceGroups } from '../data/services';
+import { arrowIcon } from './Icons';
+// The first service starts open; src/scripts/site.ts handles opening/closing.
+const firstOpen = services[0].name;
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+---
+<div aria-label="Services" data-accordion style="display: flex; flex-direction: column; border-top: 1px solid rgba(159,211,245,.16)">
+  {serviceGroups.map((g) => (
+    <div class="svc-group">
+      <p class="mono" style="margin: 0; color: #9FD3F5">{g}</p>
+      <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+        {services.filter((s) => s.group === g).map((s) => {
+          const open = s.name === firstOpen;
+          const id = `svc-${slug(s.name)}`;
+          return (
+            <div class:list={['acc-item', { 'is-open': open }]}>
+              <h3 style="margin: 0">
+                <button type="button" class="svc" aria-expanded={open ? 'true' : 'false'} aria-controls={id} data-acc-toggle>
+                  <span style="font-size: clamp(18px, 1.6vw, 22px); font-weight: 500; letter-spacing: -.015em">{s.name}</span>
+                  <span style="display: flex; align-items: center; gap: 14px">
+                    <span class="hide-sm" style="font-size: 14px; color: #9AA8BC; font-weight: 400">{s.teaser}</span>
+                    <svg class="chev" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true"><path d="M5 8l5 5 5-5"></path></svg>
+                  </span>
+                </button>
+              </h3>
+              <div class="acc-grid" id={id} hidden={!open}>
+                <div>
+                  <p style="margin: 0 0 22px; font-size: 17px; line-height: 1.6; color: #C9D4E3">{s.what}</p>
+                  {s.note && <p style="margin: -8px 0 22px; padding: 12px 14px; border-radius: 12px; border: 1px dashed rgba(159,211,245,.3); font-size: 14px; line-height: 1.5; color: #B7C3D4">{s.note}</p>}
+                  <div class="two-col" style="margin-bottom: 22px; gap: 10px">
+                    <div style="border-radius: 12px; padding: 12px 14px; background: rgba(159,211,245,.07)">
+                      <p class="mono" style="margin: 0 0 4px; color: #9AA8BC; font-size: 11px">When you’ll see results</p>
+                      <p style="margin: 0; font-size: 15px">{s.when}</p>
+                    </div>
+                    <div style="border-radius: 12px; padding: 12px 14px; background: rgba(159,211,245,.07)">
+                      <p class="mono" style="margin: 0 0 4px; color: #9AA8BC; font-size: 11px">My price</p>
+                      <p style="margin: 0; font-size: 15px">{s.price}</p>
+                    </div>
+                  </div>
+                  <a href="#contact" data-enquiry={`Hi Sebastian, I’m interested in ${s.name}. `} class="btn btn-ice" style="min-height: 46px; font-size: 15px">Ask about {s.short}<Fragment set:html={arrowIcon} /></a>
+                </div>
+                <div>
+                  <p class="mono" style="margin: 0 0 4px; color: #9AA8BC">How you benefit</p>
+                  <ul style="list-style: none; margin: 0; padding: 0">
+                    {s.benefits.map((b) => (
+                      <li style="display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 8px; padding: 11px 0; border-bottom: 1px solid rgba(159,211,245,.1)">
+                        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true" style="margin-top: 2px"><path d="M4 10.5l4 4 8-9"></path></svg>
+                        <span style="display: flex; flex-direction: column; gap: 2px"><strong style="font-weight: 500; font-size: 16px">{b.t}</strong><span style="color: #9AA8BC; font-size: 14px; line-height: 1.5">{b.d}</span></span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  ))}
+</div>

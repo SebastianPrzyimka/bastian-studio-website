@@ -1,0 +1,24 @@
+---
+import Logo from './Logo.astro';
+import { site } from '../data/site';
+---
+<footer style="border-top: 1px solid rgba(159,211,245,.12); background: #080D1A">
+  <div class="wrap foot" style="padding-top: 56px; padding-bottom: 32px">
+    <div>
+      <p style="margin: 0 0 12px; display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 600; letter-spacing: -.02em"><Logo id="f" size={26} /><span>Bastian <span style="color: #9FD3F5">Studio</span></span></p>
+      <p style="margin: 0; color: #9AA8BC; font-size: 15px; line-height: 1.6">Web design &amp; digital marketing for small businesses. Based in Glasgow, working with businesses across the UK.</p>
+    </div>
+    <div>
+      <p class="mono" style="margin: 0 0 12px; color: #9AA8BC">Services</p>
+      <p style="margin: 0; font-size: 15px; line-height: 1.8; color: #C9D4E3"><a href="/web-design-glasgow" style="color: #C9D4E3">Web design Glasgow</a> · E-commerce<br>SEO · Google Ads<br>Logos &amp; branding<br>Social media graphics<br>Landing pages · Automation</p>
+    </div>
+    <div>
+      <p class="mono" style="margin: 0 0 12px; color: #9AA8BC">Contact</p>
+      <p style="margin: 0; font-size: 15px; line-height: 1.8"><a href={site.phoneHref}>{site.phoneDisplay}</a><br><a href={`mailto:${site.email}`}>{site.email}</a><br><span style="color: #C9D4E3">{site.location}</span></p>
+    </div>
+  </div>
+  <div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 20px; padding-bottom: 32px; border-top: 1px solid rgba(159,211,245,.1); font-size: 13px; color: #8291A8">
+    <span>© {site.year} {site.name} · A trading name of {site.owner}, sole trader, Glasgow</span>
+    <span><a href="/about" style="color: #8291A8">About</a> · <a href="/guides" style="color: #8291A8">Guides</a> · <a href="/privacy" style="color: #8291A8">Privacy &amp; cookies</a> · <a href="/terms" style="color: #8291A8">Terms</a> · <a href="#top" style="color: #8291A8">Back to top ↑</a></span>
+  </div>
+</footer>

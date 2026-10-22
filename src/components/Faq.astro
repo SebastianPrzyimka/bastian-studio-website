@@ -1,0 +1,18 @@
+---
+// FAQ list. The first answer starts open; src/scripts/site.ts toggles the rest.
+interface Props { items: { q: string; a: string }[]; id: string }
+const { items, id } = Astro.props;
+---
+<div class="split-b" style="border-top: 1px solid rgba(159,211,245,.16)">
+  {items.map((f, i) => (
+    <div style="border-bottom: 1px solid rgba(159,211,245,.16)">
+      <h3 style="margin: 0">
+        <button type="button" class="faq-q" aria-expanded={i === 0 ? 'true' : 'false'} aria-controls={`${id}-${i}`} data-faq-toggle>
+          <span>{f.q}</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true"><path d="M10 4v12M4 10h12"></path></svg>
+        </button>
+      </h3>
+      <p id={`${id}-${i}`} hidden={i !== 0} style="margin: 0 0 24px; color: #B7C3D4; font-size: 16px; line-height: 1.6; max-width: 62ch">{f.a}</p>
+    </div>
+  ))}
+</div>

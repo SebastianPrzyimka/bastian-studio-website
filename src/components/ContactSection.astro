@@ -1,0 +1,48 @@
+---
+import { site } from '../data/site';
+import { waIcon, calIcon, arrowIcon } from './Icons';
+// Contact section used at the bottom of most pages. Submissions go to Web3Forms (see src/data/site.ts).
+---
+<section id="contact" class="sec" style="padding: 120px 0; background: radial-gradient(800px 480px at 15% 0%, rgba(62,143,208,.18), transparent 70%), #0A1020">
+  <div class="wrap split" style="gap: 56px">
+    <div class="split-a">
+      <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">Contact</p>
+      <h2 style="margin: 0; font-size: clamp(44px, 5.4vw, 76px); font-weight: 500; line-height: .98; letter-spacing: -.045em">Let’s get you <span class="serif" style="color: #9FD3F5">more customers.</span></h2>
+      <p class="lead" style="margin-top: 24px">Tell me a little about your business. I’ll reply within one working day with ideas and a no-obligation quote.</p>
+      <div style="margin-top: 40px; display: flex; flex-direction: column; gap: 0">
+        <a href={site.phoneHref} class="contact-line"><span class="mono" style="color: #9AA8BC">Call</span>{site.phoneDisplay}</a>
+        <a href={`mailto:${site.email}`} class="contact-line"><span class="mono" style="color: #9AA8BC">Email</span>{site.email}</a>
+        <p class="contact-line" style="border-bottom: 1px solid rgba(159,211,245,.16)"><span class="mono" style="color: #9AA8BC">Based in</span>{site.location}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px">
+          <a href={site.whatsapp} target="_blank" rel="noopener" class="btn btn-ghost" style="font-size: 15px"><Fragment set:html={waIcon} />WhatsApp me <span aria-hidden="true" style="opacity: .7">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          <a href={site.calendly} target="_blank" rel="noopener" class="btn btn-ghost" style="font-size: 15px"><Fragment set:html={calIcon} />Book a free call <span aria-hidden="true" style="opacity: .7">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-b" data-form-wrap>
+      <form data-web3form data-subject="New enquiry from bastianstudio.co.uk" class="boxpad" style="border-radius: 28px; padding: clamp(24px, 3.5vw, 40px); background: #0F1830; border: 1px solid rgba(159,211,245,.18); display: flex; flex-direction: column; gap: 24px">
+        <div class="two">
+          <div class="field"><label for="c-name" style="font-size: 14px; color: #B7C3D4">Your name</label><input id="c-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="c-biz" style="font-size: 14px; color: #B7C3D4">Business &amp; type</label><input id="c-biz" name="business" type="text" autocomplete="organization" placeholder="e.g. Hair salon, Shawlands"></div>
+          <div class="field"><label for="c-email" style="font-size: 14px; color: #B7C3D4">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="c-phone" style="font-size: 14px; color: #B7C3D4">Phone</label><input id="c-phone" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="field"><label for="c-msg" style="font-size: 14px; color: #B7C3D4">Message</label><textarea id="c-msg" name="message" rows="5" placeholder="Tell me a bit about what you need, e.g. a new website, Google Ads, a logo…"></textarea></div>
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="form-error" data-form-error hidden></p>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+          <p style="margin: 0; font-size: 14px; color: #9AA8BC">I’ll reply within one working day.</p>
+          <button type="submit" class="btn btn-ice">Send enquiry<Fragment set:html={arrowIcon} /></button>
+        </div>
+        <p style="margin: 0; font-size: 13px; color: #8291A8">By sending this form you agree to my <a href="/privacy" style="color: #9AA8BC">privacy policy</a>.</p>
+      </form>
+      <div data-form-thanks hidden style="border-radius: 28px; padding: 48px 40px; background: #0F1830; border: 1px solid rgba(159,211,245,.3); display: flex; flex-direction: column; gap: 16px; min-height: 420px; justify-content: center">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="23" stroke="#9FD3F5" stroke-width="1.5"></circle><path d="M15 25l6 6 13-14" stroke="#9FD3F5" stroke-width="2"></path></svg>
+        <p style="margin: 0; font-size: 36px; font-weight: 500; letter-spacing: -.03em">Thanks, message received.</p>
+        <p style="margin: 0; color: #B7C3D4; font-size: 17px; line-height: 1.55">I’ll be in touch within one working day. In a hurry? Call {site.phoneDisplay}.</p>
+        <button type="button" data-form-reset style="all: unset; cursor: pointer; color: #9FD3F5; text-decoration: underline; min-height: 44px; display: inline-flex; align-items: center; width: max-content">Send another enquiry</button>
+      </div>
+    </div>
+  </div>
+</section>

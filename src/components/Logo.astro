@@ -1,0 +1,17 @@
+---
+// The Bastian Studio "B" mark. `id` keeps gradient/clip ids unique when used twice on a page.
+interface Props { id: string; size?: number; label?: string }
+const { id, size = 30, label } = Astro.props;
+const width = Math.round((size * 65) / 73 * 100) / 100;
+---
+<svg width={width} height={size} viewBox="0 0 65 73" role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'} style="flex: none; display: block">
+  <defs>
+    <clipPath id={`bc-${id}`}><path d="M26 32H44A20.5 20.5 0 0 1 44 73H4A4 4 0 0 1 0 69V57C0 43.2 11.6 32 26 32Z"></path></clipPath>
+    <linearGradient id={`bg-${id}`} x1="0" y1="73" x2="52" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6FA3D8"></stop><stop offset=".55" stop-color="#2C5A8C"></stop><stop offset="1" stop-color="#0F2547"></stop>
+    </linearGradient>
+  </defs>
+  <path d="M0 0H41.5A16 16 0 0 1 41.5 32H5A5 5 0 0 1 0 27Z" fill="#9FD3F5"></path>
+  <path d="M26 32H44A20.5 20.5 0 0 1 44 73H4A4 4 0 0 1 0 69V57C0 43.2 11.6 32 26 32Z" fill="#9FD3F5"></path>
+  <path d="M-2 75.6L57.6 30L-2 30Z" fill={`url(#bg-${id})`} clip-path={`url(#bc-${id})`}></path>
+</svg>

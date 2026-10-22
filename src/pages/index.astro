@@ -1,0 +1,287 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import IndustryTabs from '../components/IndustryTabs.astro';
+import ServicesAccordion from '../components/ServicesAccordion.astro';
+import FreeCheck from '../components/FreeCheck.astro';
+import Faq from '../components/Faq.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { feed } from '../data/feed';
+import { homeFaqs } from '../data/faqs';
+---
+<BaseLayout title="Web Design Glasgow | Websites, SEO & Google Ads | Bastian Studio" description="Websites, SEO, Google Ads and automation for small businesses. Based in Glasgow, working across the UK. Fixed quotes from £495." schema>
+<!-- ================= HERO ================= -->
+<section id="top" class="hero-pad" style="position: relative; padding: 96px 0 104px; background: radial-gradient(900px 520px at 78% 18%, rgba(62,143,208,.22), transparent 70%), #0A1020">
+  <svg aria-hidden="true" viewBox="0 0 1440 600" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+    <defs>
+      <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M56 0H0V56" fill="none" stroke="rgba(159,211,245,.06)" stroke-width="1"></path></pattern>
+    </defs>
+    <rect width="1440" height="600" fill="url(#grid)"></rect>
+    <path d="M-20 470 C 240 380, 420 560, 720 470 S 1180 360, 1460 430" fill="none" stroke="rgba(159,211,245,.22)" stroke-width="1.2"></path>
+    <path d="M-20 500 C 260 410, 440 590, 740 500 S 1200 390, 1460 460" fill="none" stroke="rgba(159,211,245,.12)" stroke-width="1"></path>
+  </svg>
+  <div class="wrap hero" style="position: relative">
+    <div class="hero-copy">
+      <p class="mono" style="margin: 0 0 24px; color: #9FD3F5; display: flex; align-items: center; gap: 10px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #9FD3F5; box-shadow: 0 0 0 4px rgba(159,211,245,.18)"></span>Web design &amp; digital marketing · Glasgow</p>
+      <h1 style="margin: 0; font-size: clamp(44px, 6.2vw, 88px); font-weight: 500; line-height: .98; letter-spacing: -.045em">Websites that win you <span class="serif" style="color: #9FD3F5; font-size: 1.08em">customers</span>, not just compliments.</h1>
+      <p style="margin: 28px 0 36px; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; color: #B7C3D4; max-width: 46ch">I design websites, get you found on Google, run your ads and automate the busywork for salons, trades, clinics and small businesses. Based in Glasgow, working with clients across the UK.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a href="#contact" class="btn btn-ice">Get a free quote
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"></path></svg>
+        </a>
+        <a href="/prices" class="btn btn-ghost">See typical prices</a>
+      </div>
+      <ul style="list-style: none; margin: 40px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 15px; color: #C9D4E3">
+        <li style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"></path></svg>Fixed, written quotes</li>
+        <li style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"></path></svg>You own your website</li>
+        <li style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9FD3F5" stroke-width="1.8" aria-hidden="true"><path d="M3 8.5l3 3 7-7"></path></svg>A real person, based in Glasgow</li>
+      </ul>
+    </div>
+
+    <div class="hero-panel">
+      <div class="boxpad" style="position: relative; border-radius: 24px; padding: 24px; background: linear-gradient(180deg, rgba(20,32,61,.92), rgba(15,24,48,.92)); border: 1px solid rgba(159,211,245,.18); box-shadow: 0 40px 80px -30px rgba(0,0,0,.6)">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px">
+          <p style="margin: 0; font-size: 15px; font-weight: 500">Your website, while you’re busy</p>
+          <span class="mono" style="font-size: 11px; color: #9AA8BC; border: 1px solid rgba(159,211,245,.2); border-radius: 999px; padding: 4px 10px">Example</span>
+        </div>
+        <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+          {feed.map((f) => (<Fragment>
+            <li class="feed-row">
+              <span class="mono" style="color: #9AA8BC; padding-top: 3px">{f.time}</span>
+              <span style="width: 28px; height: 28px; border-radius: 8px; background: rgba(159,211,245,.12); display: flex; align-items: center; justify-content: center; color: #9FD3F5">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d={f.icon}></path></svg>
+              </span>
+              <span style="display: flex; flex-direction: column; gap: 3px">
+                <span style="font-size: 15px; font-weight: 500">{f.title}</span>
+                <span style="font-size: 13px; color: #9AA8BC">{f.via}</span>
+              </span>
+            </li>
+          </Fragment>))}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICE STRIP ================= -->
+<section aria-label="What we do" style="border-top: 1px solid rgba(159,211,245,.12); border-bottom: 1px solid rgba(159,211,245,.12); background: #0C1426">
+  <div class="wrap strip" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 28px; padding-top: 22px; padding-bottom: 22px; font-size: 15px; color: #C9D4E3">
+    <span>Websites</span><span class="sl" aria-hidden="true" style="color: #3E5378">/</span>
+    <span>E-commerce</span><span class="sl" aria-hidden="true" style="color: #3E5378">/</span>
+    <span>SEO</span><span class="sl" aria-hidden="true" style="color: #3E5378">/</span>
+    <span>Google Ads</span><span class="sl" aria-hidden="true" style="color: #3E5378">/</span>
+    <span>Logos &amp; branding</span><span class="sl" aria-hidden="true" style="color: #3E5378">/</span>
+    <span>Social media graphics</span><span class="sl" aria-hidden="true" style="color: #3E5378">/</span>
+    <span>Landing pages &amp; lead tracking</span><span class="sl" aria-hidden="true" style="color: #3E5378">/</span>
+    <span>Automation</span><span class="sl" aria-hidden="true" style="color: #3E5378">/</span>
+    <span>Support</span>
+  </div>
+</section>
+
+<!-- ================= WHY A WEBSITE ================= -->
+<section id="why" class="sec" style="padding: 128px 0 112px">
+  <div class="wrap">
+    <div class="split" style="margin-bottom: 56px; align-items: end">
+      <div class="split-a7">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">Why it matters</p>
+        <h2 class="h2">Why your business needs a website, <span class="serif" style="color: #9FD3F5">even if you’re already busy.</span></h2>
+      </div>
+      <div class="split-b5">
+        <p class="lead">Word of mouth is brilliant. But when someone gets your name, the first thing they do is look you up. What they find decides whether they call you or the next result.</p>
+      </div>
+    </div>
+
+    <div class="why">
+      <div class="why-item">
+        <p class="mono" style="margin: 0 0 14px; color: #9FD3F5">01</p>
+        <h3 style="margin: 0 0 10px; font-size: 22px; font-weight: 500; letter-spacing: -.02em">Customers search before they buy</h3>
+        <p style="margin: 0; color: #9AA8BC; font-size: 16px; line-height: 1.55">Before they book a treatment, call a plumber or pick a dentist, people check Google. If you’re not there, a competitor is. <strong style="color: #EEF4FA; font-weight: 500">97% of people read online reviews when choosing a local business.</strong></p>
+        <p style="margin: 10px 0 0; font-size: 12px; color: #8291A8">Source: <a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener" style="color: #8291A8">BrightLocal Local Consumer Review Survey, 2026 <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></p>
+      </div>
+      <div class="why-item">
+        <p class="mono" style="margin: 0 0 14px; color: #9FD3F5">02</p>
+        <h3 style="margin: 0 0 10px; font-size: 22px; font-weight: 500; letter-spacing: -.02em">Social media isn’t yours</h3>
+        <p style="margin: 0; color: #9AA8BC; font-size: 16px; line-height: 1.55">Algorithms decide who sees your posts, and accounts get hacked or locked. Your website is the one place online you fully own and control.</p>
+      </div>
+      <div class="why-item">
+        <p class="mono" style="margin: 0 0 14px; color: #9FD3F5">03</p>
+        <h3 style="margin: 0 0 10px; font-size: 22px; font-weight: 500; letter-spacing: -.02em">It works while you don’t</h3>
+        <p style="margin: 0; color: #9AA8BC; font-size: 16px; line-height: 1.55">Bookings, quote requests and enquiries come in at 10pm on a Sunday, while you’re on a job, with a client or asleep.</p>
+      </div>
+      <div class="why-item">
+        <p class="mono" style="margin: 0 0 14px; color: #9FD3F5">04</p>
+        <h3 style="margin: 0 0 10px; font-size: 22px; font-weight: 500; letter-spacing: -.02em">Trust, in seconds</h3>
+        <p style="margin: 0; color: #9AA8BC; font-size: 16px; line-height: 1.55">Photos of your work, reviews, prices and qualifications in one place. A professional site makes a small business look established.</p>
+      </div>
+      <div class="why-item">
+        <p class="mono" style="margin: 0 0 14px; color: #9FD3F5">05</p>
+        <h3 style="margin: 0 0 10px; font-size: 22px; font-weight: 500; letter-spacing: -.02em">Found on Google Maps</h3>
+        <p style="margin: 0; color: #9AA8BC; font-size: 16px; line-height: 1.55">A good website strengthens your Google Business Profile, helping you appear for “near me” searches in your area.</p>
+      </div>
+      <div class="why-item">
+        <p class="mono" style="margin: 0 0 14px; color: #9FD3F5">06</p>
+        <h3 style="margin: 0 0 10px; font-size: 22px; font-weight: 500; letter-spacing: -.02em">Fewer time-wasting calls</h3>
+        <p style="margin: 0; color: #9AA8BC; font-size: 16px; line-height: 1.55">Prices, FAQs, opening hours and online booking answer the same questions for you, so the calls you get are from people ready to buy.</p>
+      </div>
+    </div>
+
+    <IndustryTabs />
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="sec" style="padding: 112px 0; background: #0C1426; border-top: 1px solid rgba(159,211,245,.1)">
+  <div class="wrap">
+    <div class="split" style="margin-bottom: 48px; align-items: end">
+      <div class="split-a7">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">Services</p>
+        <h2 class="h2">Everything you need to get online, get found and <span class="serif" style="color: #9FD3F5">get busy.</span></h2>
+      </div>
+      <div class="split-b5"><p class="lead">Pick a service to see what it is, how it helps your business and how soon you’ll see results. Use one, or let me run the lot.</p></div>
+    </div>
+
+    <ServicesAccordion />
+
+    <!-- SEO vs Ads -->
+    <div style="margin-top: 96px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 32px">
+        <h3 style="margin: 0; font-size: clamp(28px, 3vw, 40px); font-weight: 500; letter-spacing: -.03em">SEO or Google Ads? <span class="serif" style="color: #9FD3F5">Usually both.</span></h3>
+        <p class="lead" style="max-width: 46ch; font-size: 16px">Both put you in front of people searching for what you do. They just work on different clocks.</p>
+      </div>
+      <div class="vs">
+        <div class="boxpad" style="border-radius: 24px; padding: 32px; border: 1px solid rgba(159,211,245,.18)">
+          <p class="mono" style="margin: 0 0 10px; color: #9FD3F5">SEO · the long game</p>
+          <p style="margin: 0 0 22px; font-size: 22px; font-weight: 500; letter-spacing: -.02em; line-height: 1.3">Earn a place in Google’s free results and on Maps.</p>
+          <dl class="kv">
+            <dt style="color: #9AA8BC">Speed</dt><dd style="margin: 0">Builds over 3–6+ months</dd>
+            <dt style="color: #9AA8BC">You pay for</dt><dd style="margin: 0">The work, not each click</dd>
+            <dt style="color: #9AA8BC">Lasts</dt><dd style="margin: 0">Keeps bringing visitors long after</dd>
+            <dt style="color: #9AA8BC">Best for</dt><dd style="margin: 0">Steady, low-cost enquiries for years</dd>
+          </dl>
+        </div>
+        <div class="boxpad" style="border-radius: 24px; padding: 32px; background: #9FD3F5; color: #0A1020">
+          <p class="mono" style="margin: 0 0 10px; color: #1B4F7A">Google Ads · the fast lane</p>
+          <p style="margin: 0 0 22px; font-size: 22px; font-weight: 500; letter-spacing: -.02em; line-height: 1.3">Appear at the top of Google from the day I switch it on.</p>
+          <dl class="kv">
+            <dt style="color: #1B4F7A">Speed</dt><dd style="margin: 0">Enquiries within days</dd>
+            <dt style="color: #1B4F7A">You pay for</dt><dd style="margin: 0">Each click, at a budget you set</dd>
+            <dt style="color: #1B4F7A">Lasts</dt><dd style="margin: 0">While the ads are running</dd>
+            <dt style="color: #1B4F7A">Best for</dt><dd style="margin: 0">Filling the diary now, testing offers</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICES TEASER ================= -->
+<section id="pricing" class="light sec" style="padding: 104px 0; background: #F3F7FB; color: #0A1020">
+  <div class="wrap">
+    <div class="split" style="align-items: end; margin-bottom: 40px">
+      <div class="split-a7">
+        <p class="mono" style="margin: 0 0 18px; color: #1F6FB2">Prices</p>
+        <h2 class="h2">Clear prices. <span class="serif" style="color: #1F6FB2">No surprises.</span></h2>
+      </div>
+      <div class="split-b5"><p class="lead">A small business website from a UK freelancer typically costs £800–£3,000. Mine start from £495.</p></div>
+    </div>
+    <div class="packs4">
+      <a href="#contact" data-enquiry="Hi Sebastian, I’m interested in the One-page website (from £495). " style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 28px; border-radius: 20px; background: #FFFFFF; color: #0A1020; text-decoration: none; border: 1px solid rgba(10,16,32,.1)">
+        <span><span style="display: block; font-size: 20px; font-weight: 500">One page</span><span style="font-size: 14px; color: #4A5870">Single scrolling page</span></span>
+        <span style="font-size: 20px; font-weight: 500">from £495</span>
+      </a>
+      <a href="#contact" data-enquiry="Hi Sebastian, I’m interested in the Starter package (from £1,195). " style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 28px; border-radius: 20px; background: #FFFFFF; color: #0A1020; text-decoration: none; border: 1px solid rgba(10,16,32,.1)">
+        <span><span style="display: block; font-size: 20px; font-weight: 500">Starter</span><span style="font-size: 14px; color: #4A5870">Up to 5 pages</span></span>
+        <span style="font-size: 20px; font-weight: 500">from £1,195</span>
+      </a>
+      <a href="#contact" data-enquiry="Hi Sebastian, I’m interested in the Business package (from £1,995). " style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 28px; border-radius: 20px; background: #0A1020; color: #EEF4FA; text-decoration: none">
+        <span><span style="display: block; font-size: 20px; font-weight: 500">Business</span><span style="font-size: 14px; color: #9AA8BC">Up to 10 pages + booking + free logo</span></span>
+        <span style="font-size: 20px; font-weight: 500">from £1,995</span>
+      </a>
+      <a href="#contact" data-enquiry="Hi Sebastian, I’m interested in the E-commerce package (from £2,495). " style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 28px; border-radius: 20px; background: #FFFFFF; color: #0A1020; text-decoration: none; border: 1px solid rgba(10,16,32,.1)">
+        <span><span style="display: block; font-size: 20px; font-weight: 500">E-commerce</span><span style="font-size: 14px; color: #4A5870">Online shop</span></span>
+        <span style="font-size: 20px; font-weight: 500">from £2,495</span>
+      </a>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; align-items: center">
+      <a href="/prices" class="btn btn-ink">See the full price guide
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"></path></svg>
+      </a>
+      <a href="#contact" class="btn" style="border: 1px solid rgba(10,16,32,.25); color: #0A1020">Get a quote</a>
+      <span style="font-size: 14px; color: #4A5870">Includes UK price ranges, running costs and DIY vs hiring a pro.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="sec" style="padding: 120px 0">
+  <div class="wrap">
+    <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">How it works</p>
+    <h2 class="h2" style="margin-bottom: 56px">From first chat to <span class="serif" style="color: #9FD3F5">first enquiry.</span></h2>
+    <ol class="steps" style="list-style: none; margin: 0; padding: 0">
+      <li style="padding-top: 24px; border-top: 1px solid #9FD3F5">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">Step 1</p>
+        <h3 style="margin: 0 0 10px; font-size: 22px; font-weight: 500">Free call</h3>
+        <p style="margin: 0; color: #9AA8BC; line-height: 1.55">20 minutes, by phone or over a coffee in Glasgow. I learn about your business and what you need.</p>
+      </li>
+      <li style="padding-top: 24px; border-top: 1px solid rgba(159,211,245,.25)">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">Step 2</p>
+        <h3 style="margin: 0 0 10px; font-size: 22px; font-weight: 500">Plan &amp; fixed quote</h3>
+        <p style="margin: 0; color: #9AA8BC; line-height: 1.55">A clear written plan, timeline and price. No jargon, no hidden extras.</p>
+      </li>
+      <li style="padding-top: 24px; border-top: 1px solid rgba(159,211,245,.25)">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">Step 3</p>
+        <h3 style="margin: 0 0 10px; font-size: 22px; font-weight: 500">Design &amp; build</h3>
+        <p style="margin: 0; color: #9AA8BC; line-height: 1.55">You see designs early and give feedback. I build, write and test on every device.</p>
+      </li>
+      <li style="padding-top: 24px; border-top: 1px solid rgba(159,211,245,.25)">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">Step 4</p>
+        <h3 style="margin: 0 0 10px; font-size: 22px; font-weight: 500">Launch &amp; grow</h3>
+        <p style="margin: 0; color: #9AA8BC; line-height: 1.55">We go live, I set up Google, and help you keep improving with SEO, ads and support.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= WHY WORK WITH ME ================= -->
+<section class="sec" style="padding: 0 0 104px">
+  <div class="wrap">
+    <div class="split" style="margin-bottom: 40px; align-items: end">
+      <div class="split-a7">
+        <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">Why work with me</p>
+        <h2 class="h2">Small studio. <span class="serif" style="color: #9FD3F5">Your advantage.</span></h2>
+      </div>
+      <div class="split-b5"><p class="lead">A dedicated developer who knows your business, not a ticket number at a big agency.</p></div>
+    </div>
+    <div class="why why-4"><div class="why-item"><span style="display: flex; width: 44px; height: 44px; border-radius: 12px; background: rgba(159,211,245,.1); border: 1px solid rgba(159,211,245,.2); align-items: center; justify-content: center; margin-bottom: 18px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9FD3F5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></span><h3 style="margin: 0 0 10px; font-size: 21px; font-weight: 500; letter-spacing: -.02em">My full attention</h3><p style="margin: 0; color: #9AA8BC; font-size: 16px; line-height: 1.55">You’re one of a few clients, not one of hundreds. You deal with me from start to finish.</p></div><div class="why-item"><span style="display: flex; width: 44px; height: 44px; border-radius: 12px; background: rgba(159,211,245,.1); border: 1px solid rgba(159,211,245,.2); align-items: center; justify-content: center; margin-bottom: 18px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9FD3F5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12l-8 8-8-8V4h8zM8.5 8.5h.01"></path></svg></span><h3 style="margin: 0 0 10px; font-size: 21px; font-weight: 500; letter-spacing: -.02em">Fair prices</h3><p style="margin: 0; color: #9AA8BC; font-size: 16px; line-height: 1.55">Agency-quality work without the agency overheads, at prices built for small businesses.</p></div><div class="why-item"><span style="display: flex; width: 44px; height: 44px; border-radius: 12px; background: rgba(159,211,245,.1); border: 1px solid rgba(159,211,245,.2); align-items: center; justify-content: center; margin-bottom: 18px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9FD3F5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2"></path></svg></span><h3 style="margin: 0 0 10px; font-size: 21px; font-weight: 500; letter-spacing: -.02em">Quick replies</h3><p style="margin: 0; color: #9AA8BC; font-size: 16px; line-height: 1.55">You’ll hear back within one working day. No tickets, no waiting in a queue.</p></div><div class="why-item"><span style="display: flex; width: 44px; height: 44px; border-radius: 12px; background: rgba(159,211,245,.1); border: 1px solid rgba(159,211,245,.2); align-items: center; justify-content: center; margin-bottom: 18px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9FD3F5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5z"></path></svg></span><h3 style="margin: 0 0 10px; font-size: 21px; font-weight: 500; letter-spacing: -.02em">Everything to prove</h3><p style="margin: 0; color: #9AA8BC; font-size: 16px; line-height: 1.55">Every site carries my name, so every one gets my very best work.</p></div></div>
+  </div>
+</section>
+
+<!-- ================= MEET SEBASTIAN ================= -->
+<section aria-label="About me" style="padding: 0 0 96px">
+  <div class="wrap">
+    <a href="/about" class="meet" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; padding: 24px 28px; border-radius: 24px; background: #0F1830; border: 1px solid rgba(159,211,245,.16); text-decoration: none; color: #EEF4FA">
+      <span role="img" aria-label="Photo of Sebastian (placeholder)" style="flex: none; width: 72px; height: 72px; border-radius: 50%; background: radial-gradient(60px 60px at 30% 25%, rgba(62,143,208,.5), transparent 70%), #14203D; border: 1px solid rgba(159,211,245,.3)"></span>
+      <span style="flex: 1 1 320px; min-width: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.45">Hi, I’m Sebastian, a Glasgow web developer who designs, builds and looks after every website <span class="serif" style="color: #9FD3F5; font-size: 1.12em">personally.</span></span>
+      <span style="display: inline-flex; align-items: center; gap: 8px; color: #9FD3F5; font-weight: 500; white-space: nowrap; min-height: 44px">More about me
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"></path></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="sec" style="padding: 112px 0; background: #0C1426; border-top: 1px solid rgba(159,211,245,.1)">
+  <div class="wrap split" style="gap: 48px">
+    <div class="split-a">
+      <p class="mono" style="margin: 0 0 18px; color: #9FD3F5">FAQ</p>
+      <h2 class="h2">Questions I get <span class="serif" style="color: #9FD3F5">every week.</span></h2>
+      <p class="lead" style="margin-top: 20px">Can’t see yours? Call 07543 673841 and you’ll speak to the person who’d build your site.</p>
+    </div>
+    <Faq items={homeFaqs} id="faq-home" />
+  </div>
+</section>
+
+<FreeCheck />
+
+<ContactSection />
+
+</BaseLayout>
