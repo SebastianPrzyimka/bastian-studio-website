@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import sebastianPhoto from '../assets/sebastian.jpg';
 import IndustryTabs from '../components/IndustryTabs.astro';
 import ServicesAccordion from '../components/ServicesAccordion.astro';
 import FreeCheck from '../components/FreeCheck.astro';
@@ -259,7 +261,7 @@ import { homeFaqs } from '../data/faqs';
 <section aria-label="About me" style="padding: 0 0 96px">
   <div class="wrap">
     <a href="/about" class="meet" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; padding: 24px 28px; border-radius: 24px; background: #0F1830; border: 1px solid rgba(159,211,245,.16); text-decoration: none; color: #EEF4FA">
-      <span role="img" aria-label="Photo of Sebastian (placeholder)" style="flex: none; width: 72px; height: 72px; border-radius: 50%; background: radial-gradient(60px 60px at 30% 25%, rgba(62,143,208,.5), transparent 70%), #14203D; border: 1px solid rgba(159,211,245,.3)"></span>
+      <Image src={sebastianPhoto} alt="Sebastian Przyimka" width={144} height={144} style="flex: none; width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(159,211,245,.3)" />
       <span style="flex: 1 1 320px; min-width: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.45">Hi, I’m Sebastian, a Glasgow web developer who designs, builds and looks after every website <span class="serif" style="color: #9FD3F5; font-size: 1.12em">personally.</span></span>
       <span style="display: inline-flex; align-items: center; gap: 8px; color: #9FD3F5; font-weight: 500; white-space: nowrap; min-height: 44px">More about me
         <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h12M10 4l5 5-5 5"></path></svg>
