@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactSection from '../components/ContactSection.astro';
+import { Image } from 'astro:assets';
+import aboutPhoto from '../assets/sebastian-about.jpg';
 ---
 <BaseLayout title="About Sebastian | Web Developer in Glasgow | Bastian Studio" description="Meet Sebastian, a Glasgow web developer who designs, builds and looks after every website personally. Plain English, fixed quotes." current="About">
 <section id="top" class="hero-pad" style="position: relative; padding: 80px 0 96px; background: radial-gradient(900px 460px at 80% 0%, rgba(62,143,208,.22), transparent 70%), #0A1020">
@@ -18,7 +20,7 @@ import ContactSection from '../components/ContactSection.astro';
       </div>
     </div>
     <div class="split-b5">
-      <div role="img" aria-label="Photo of Sebastian (placeholder)" style="aspect-ratio: 4 / 5; max-width: 420px; margin-left: auto; border-radius: 28px; background: radial-gradient(420px 320px at 30% 20%, rgba(62,143,208,.35), transparent 70%), #14203D; border: 1px solid rgba(159,211,245,.2); display: flex; align-items: flex-end; padding: 24px; color: #9AA8BC; font-size: 14px">[Your photo: a friendly, natural shot works best]</div>
+      <Image src={aboutPhoto} alt="Sebastian Przyimka in a dark suit, standing in front of flowering bushes" widths={[420, 840]} sizes="(max-width: 1000px) 100vw, 420px" loading="eager" style="display: block; width: 100%; max-width: 420px; height: auto; aspect-ratio: 4 / 5; object-fit: cover; margin-left: auto; border-radius: 28px; border: 1px solid rgba(159,211,245,.2)" />
     </div>
   </div>
 </section>
