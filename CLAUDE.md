@@ -41,5 +41,5 @@ Logos £149 · Social graphics £149 (10 templates) · Landing pages £395 · Au
 - Before pushing: `npm run build`, then check pages at 360, 820 and 1440px wide for horizontal overflow.
 
 ## Not done yet
-- Domain not bought yet (`site.url` is a placeholder `https://bastianstudio.co.uk`; also in `public/robots.txt`).
+- Domain `bastianstudio.co.uk` bought via Cloudflare Registrar (Oct 2026); connect it as a Custom domain on the Worker.
 - No portfolio, reviews or Google Ads certification badge yet; add when available.
