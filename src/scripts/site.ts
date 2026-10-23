@@ -126,8 +126,10 @@ $$<HTMLFormElement>('form[data-web3form]').forEach((form) => {
       form.reset();
       form.hidden = true;
       if (thanks) thanks.hidden = false;
-    } catch {
-      showError(`Sorry, something went wrong. Please try again, or email <a href="mailto:${site.email}">${site.email}</a>.`);
+    } catch (err) {
+      console.error('Form send failed:', err);
+      const reason = err instanceof Error ? err.message.replace(/[<>&]/g, '') : '';
+      showError(`Sorry, something went wrong${reason ? ` (${reason})` : ''}. Please try again, or email <a href="mailto:${site.email}">${site.email}</a>.`);
     } finally {
       if (button) button.disabled = false;
     }
